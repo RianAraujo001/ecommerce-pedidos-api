@@ -112,48 +112,68 @@ A classe `Pedido` representa o pedido no sistema e possui os seguintes atributos
 
 ## 🟢 Strategy – Cálculo de Frete
 
-Permite escolher o tipo de frete em tempo de execução.
+O sistema precisa calcular o frete com base no tipo de envio escolhido pelo cliente.
 
-**Implementação:**
+Para isso, foi aplicado o padrão **Strategy**, permitindo escolher o algoritmo de cálculo em tempo de execução.
 
-* `CalculoFrete`
-* `FreteCaminhao` (5%)
-* `FreteAviao` (10%)
+**Implementação no projeto:**
+
+* `CalculoFrete` → interface com o método `calcular(valor)`
+* `FreteCaminhao` → calcula 5% do valor do pedido
+* `FreteAviao` → calcula 10% do valor do pedido
+
+No momento da criação do pedido, a estratégia é selecionada dinamicamente com base no parâmetro `frete` recebido na API.
 
 **Vantagem:**
-Facilita adicionar novos tipos de frete sem alterar o código principal.
+
+Evita uso excessivo de condicionais (`if/else`) e permite adicionar novos tipos de frete sem alterar o código existente.
 
 ---
 
 ## 🔵 Observer – Notificação
 
-Responsável por notificar o cliente quando o pedido é criado.
+O sistema precisa notificar o cliente quando um pedido é criado.
 
-**Implementação:**
+Para isso, foi aplicado o padrão **Observer**, permitindo que objetos sejam notificados quando um evento ocorre.
 
-* `Observador`
-* `ClienteObserver`
+**Implementação no projeto:**
+
+* `Observador` → interface com o método `atualizar(msg)`
+* `ClienteObserver` → responsável por receber a notificação
+
+Durante a criação do pedido, o observer é acionado para enviar a mensagem de confirmação.
 
 **Vantagem:**
-Separa a lógica de notificação da regra principal do sistema.
+
+Desacopla a lógica de notificação da regra principal do sistema.
 
 ---
 
 ## 🟡 State – Controle de Status
 
-O controle de estados foi implementado com apoio das classes de estado e validações na camada de serviço.
+O sistema possui regras bem definidas para mudança de status do pedido.
 
-**Status:**
+Para organizar esse comportamento, foi aplicado o conceito do padrão **State**, utilizando classes para representar cada estado.
 
-* AGUARDANDO_PAGAMENTO
-* PAGO
-* ENVIADO
-* CANCELADO
+**Implementação no projeto:**
 
-**Regras:**
+* `PedidoState`
+* `AguardandoPagamentoState`
+* `PagoState`
+* `EnviadoState`
+* `CanceladoState`
 
-* Não permite transições inválidas
-* Garante consistência no fluxo do pedido
+Cada estado representa uma fase do pedido e define quais ações são permitidas.
+
+A camada de serviço reforça essas regras garantindo:
+
+* Não é possível pagar duas vezes
+* Não é possível cancelar após envio
+* Não é possível alterar um pedido cancelado
+
+**Vantagem:**
+
+Garante consistência no fluxo do pedido e evita estados inválidos.
 
 ---
 
@@ -308,6 +328,10 @@ O diagrama de classes representa:
 
 # 🎯 Conclusão
 
-A aplicação atende ao problema proposto, implementando o controle de pedidos com regras claras de estado e cálculo automático de frete.
+A solução desenvolvida atende aos requisitos propostos, implementando o controle de pedidos com regras bem definidas de estado e cálculo automático de frete.
 
-A utilização dos padrões de projeto contribui para uma estrutura mais organizada, facilitando manutenção e evolução do sistema.
+Durante o desenvolvimento, foram aplicados padrões de projeto como Strategy, Observer e State, permitindo uma separação clara de responsabilidades e deixando o sistema mais organizado e flexível.
+
+Essas decisões facilitam a manutenção do código e possibilitam a evolução da aplicação, como a adição de novos tipos de frete ou mudanças nas regras de negócio, sem impactar diretamente a estrutura existente.
+
+Com isso, o sistema se torna mais consistente, reutilizável e preparado para futuras melhorias.
