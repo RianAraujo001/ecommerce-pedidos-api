@@ -1,0 +1,180 @@
+{
+  "info": {
+    "_postman_id": "aed0d1d3-aa9b-488d-81c8-0735319ac2c2",
+    "name": "TRABALHO AV2",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48342845"
+  },
+  "item": [
+    {
+      "name": "Pedido",
+      "item": [
+        {
+          "name": "CRIAR PEDIDO CAMINHAO",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"cliente\": \"Rian\",\r\n  \"valorTotal\": 1000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseUrl}}/pedidos?frete=CAMINHAO",
+              "host": [
+                "{{BaseUrl}}"
+              ],
+              "path": [
+                "pedidos"
+              ],
+              "query": [
+                {
+                  "key": "frete",
+                  "value": "CAMINHAO"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CRIAR PEDIDO AVIAO",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"cliente\": \"tião\",\r\n  \"valorTotal\": 1000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseUrl}}/pedidos?frete=AVIAO",
+              "host": [
+                "{{BaseUrl}}"
+              ],
+              "path": [
+                "pedidos"
+              ],
+              "query": [
+                {
+                  "key": "frete",
+                  "value": "AVIAO"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "LISTAR PEDIDO",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BaseUrl}}/pedidos",
+              "host": [
+                "{{BaseUrl}}"
+              ],
+              "path": [
+                "pedidos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "BUSCAR PEDIDO",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BaseUrl}}/pedidos/1",
+              "host": [
+                "{{BaseUrl}}"
+              ],
+              "path": [
+                "pedidos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PAGAR PEDIDO",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BaseUrl}}/pedidos/1/pagar",
+              "host": [
+                "{{BaseUrl}}"
+              ],
+              "path": [
+                "pedidos",
+                "1",
+                "pagar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ENVIAR PEDIDO",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{BaseUrl}}/pedidos/2/enviar",
+              "host": [
+                "{{BaseUrl}}"
+              ],
+              "path": [
+                "pedidos",
+                "2",
+                "enviar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CANCELAR PEDIDO",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{BaseUrl}}/pedidos/1/cancelar",
+              "host": [
+                "{{BaseUrl}}"
+              ],
+              "path": [
+                "pedidos",
+                "1",
+                "cancelar"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
