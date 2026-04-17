@@ -1,0 +1,115 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+package "Controller" {
+  class PedidoController <<Controller>> {
+    +criar()
+    +listar()
+    +buscar()
+    +pagar()
+    +enviar()
+    +cancelar()
+  }
+}
+
+package "Service" {
+  class PedidoService <<Service>> {
+    +criar()
+    +listarTodos()
+    +buscarPorId()
+    +pagar()
+    +enviar()
+    +cancelar()
+  }
+}
+
+package "Repository" {
+  interface PedidoRepository <<Repository>>
+}
+
+package "Model - Entity" {
+  class Pedido <<Entity>> {
+    -id : Long
+    -cliente : String
+    -valorTotal : double
+    -valorFrete : double
+    -status : String
+  }
+}
+
+package "Model - Strategy (Frete)" {
+  interface CalculoFrete {
+    +calcular(valor : double) : double
+  }
+
+  class FreteCaminhao {
+    +calcular(valor : double) : double
+  }
+
+  class FreteAviao {
+    +calcular(valor : double) : double
+  }
+}
+
+package "Model - Observer" {
+  interface Observador {
+    +atualizar(msg : String)
+  }
+
+  class ClienteObserver {
+    +atualizar(msg : String)
+  }
+}
+
+package "Model - State" {
+  interface PedidoState {
+    +pagar()
+    +enviar()
+    +cancelar()
+  }
+
+  class AguardandoPagamentoState {
+    +pagar()
+    +enviar()
+    +cancelar()
+  }
+
+  class PagoState {
+    +pagar()
+    +enviar()
+    +cancelar()
+  }
+
+  class EnviadoState {
+    +pagar()
+    +enviar()
+    +cancelar()
+  }
+
+  class CanceladoState {
+    +pagar()
+    +enviar()
+    +cancelar()
+  }
+}
+
+PedidoController --> PedidoService
+PedidoService --> PedidoRepository
+
+PedidoService --> CalculoFrete
+PedidoService --> ClienteObserver
+
+CalculoFrete <|-- FreteCaminhao
+CalculoFrete <|-- FreteAviao
+
+Observador <|-- ClienteObserver
+
+Pedido o-- PedidoState
+
+PedidoState <|-- AguardandoPagamentoState
+PedidoState <|-- PagoState
+PedidoState <|-- EnviadoState
+PedidoState <|-- CanceladoState
+
+@enduml
