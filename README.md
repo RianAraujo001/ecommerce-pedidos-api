@@ -318,11 +318,17 @@ PEDIDO
 
 # 📊 📐 Diagrama de Classes
 
-O diagrama de classes representa:
+O diagrama de classes representa a estrutura do sistema, evidenciando a organização em camadas e a aplicação dos padrões de projeto utilizados.
 
-* Estrutura do sistema
-* Relação entre as classes
-* Aplicação dos padrões Strategy, Observer e State
+Nele é possível identificar:
+
+- A separação entre Controller, Service, Repository e Model
+- A entidade principal `Pedido`
+- A aplicação do padrão Strategy no cálculo de frete
+- O uso do padrão Observer para notificação
+- O controle de estados do pedido utilizando o padrão State
+
+ <img width="1644" height="777" alt="Diagrama de classe" src="https://github.com/user-attachments/assets/82b588be-8f64-4321-b65b-74919151e244" />
 
 ---
 
