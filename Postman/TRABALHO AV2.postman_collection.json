@@ -16,7 +16,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"cliente\": \"Rian\",\r\n  \"valorTotal\": 1000\r\n}",
+              "raw": "{\r\n  \"cliente\": \"Rian\",\r\n  \"valorTotal\": 500\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -48,7 +48,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"cliente\": \"tião\",\r\n  \"valorTotal\": 1000\r\n}",
+              "raw": "{\r\n  \"cliente\": \"Paulo\",\r\n  \"valorTotal\": 1000\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -142,13 +142,13 @@
             "method": "PUT",
             "header": [],
             "url": {
-              "raw": "{{BaseUrl}}/pedidos/2/enviar",
+              "raw": "{{BaseUrl}}/pedidos/1/enviar",
               "host": [
                 "{{BaseUrl}}"
               ],
               "path": [
                 "pedidos",
-                "2",
+                "1",
                 "enviar"
               ]
             }
