@@ -1,10 +1,10 @@
-# 🛒 Sistema de Gerenciamento de Pedidos - E-commerce
+# Sistema de Gerenciamento de Pedidos - E-commerce
 
 Projeto desenvolvido em **Java com Spring Boot** com o objetivo de controlar pedidos de um e-commerce, aplicando padrões de projeto, regras de negócio e arquitetura em camadas.
 
 ---
 
-# 📌 📖 Descrição do Problema
+# Descrição do Problema
 
 O sistema controla pedidos considerando as seguintes regras:
 
@@ -31,7 +31,7 @@ O sistema foi pensado para permitir adicionar novos tipos de frete facilmente.
 
 ---
 
-# 🎯 Objetivo da Solução
+# Objetivo da Solução
 
 * Controlar pedidos com regras de status bem definidas
 * Aplicar padrões de projeto na prática
@@ -40,7 +40,7 @@ O sistema foi pensado para permitir adicionar novos tipos de frete facilmente.
 
 ---
 
-# 🏗️ 🧱 Arquitetura do Projeto
+# Arquitetura do Projeto
 
 O sistema segue arquitetura em camadas:
 
@@ -55,7 +55,7 @@ Controller → Service → Repository → Model
 
 ---
 
-# 📦 📊 Estrutura do Projeto
+# Estrutura do Projeto
 
 ```text
 br.com.ecommerce
@@ -96,7 +96,7 @@ resources
 
 ---
 
-# 🧾 📌 Classe Principal (Pedido)
+# Classe Principal (Pedido)
 
 A classe `Pedido` representa o pedido no sistema e possui os seguintes atributos:
 
@@ -108,9 +108,9 @@ A classe `Pedido` representa o pedido no sistema e possui os seguintes atributos
 
 ---
 
-# 🧠 🎯 Padrões de Projeto Utilizados
+# Padrões de Projeto Utilizados
 
-## 🟢 Strategy – Cálculo de Frete
+## Strategy – Cálculo de Frete
 
 O sistema precisa calcular o frete com base no tipo de envio escolhido pelo cliente.
 
@@ -130,7 +130,7 @@ Evita uso excessivo de condicionais (`if/else`) e permite adicionar novos tipos 
 
 ---
 
-## 🔵 Observer – Notificação
+## Observer – Notificação
 
 O sistema precisa notificar o cliente quando um pedido é criado.
 
@@ -149,7 +149,7 @@ Desacopla a lógica de notificação da regra principal do sistema.
 
 ---
 
-## 🟡 State – Controle de Status
+## State – Controle de Status
 
 O sistema possui regras bem definidas para mudança de status do pedido.
 
@@ -177,7 +177,7 @@ Garante consistência no fluxo do pedido e evita estados inválidos.
 
 ---
 
-# 🚚 💰 Cálculo de Frete
+# Cálculo de Frete
 
 | Tipo     | Cálculo                |
 | -------- | ---------------------- |
@@ -186,7 +186,7 @@ Garante consistência no fluxo do pedido e evita estados inválidos.
 
 ---
 
-# 🌐 🚀 Endpoints da API
+# Endpoints da API
 
 **Base URL:**
 `{{BaseUrl}} = http://localhost:8080`
@@ -267,7 +267,7 @@ PUT {{BaseUrl}}/pedidos/{id}/cancelar
 
 ---
 
-# 🧪 🛠️ Como Testar
+# Como Testar
 
 ### 1. Executar o projeto
 
@@ -299,7 +299,7 @@ Fluxo recomendado:
 
 ---
 
-# 🗄️ 💾 Persistência de Dados
+# Persistência de Dados
 
 Os dados são armazenados em banco H2 em memória.
 
@@ -316,7 +316,7 @@ PEDIDO
 
 ---
 
-# 📊 📐 Diagrama de Classes
+# Diagrama de Classes
 
 O diagrama de classes representa a estrutura do sistema, evidenciando a organização em camadas e a aplicação dos padrões de projeto utilizados.
 
@@ -332,7 +332,7 @@ Nele é possível identificar:
 
 ---
 
-# 🎯 Conclusão
+# Conclusão
 
 A solução desenvolvida atende aos requisitos propostos, implementando o controle de pedidos com regras bem definidas de estado e cálculo automático de frete.
 
